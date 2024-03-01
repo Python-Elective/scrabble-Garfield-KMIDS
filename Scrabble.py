@@ -56,7 +56,7 @@ def get_frequency_dict(sequence):
 #
 # Problem #1: Scoring a word
 #
-def get_word_score(word, n):
+def get_word_score(word: str , n: int) -> int:
     """
     Returns the score for a word. Assumes the word is a valid word.
 
@@ -72,6 +72,9 @@ def get_word_score(word, n):
     returns: int >= 0
     """
 
+    assert isinstance(word, str), f'Expected word to be str, but is {type(word).__name__}'
+    assert isinstance(n, int), f'Expected n to be int, but is {type(n).__name__}'
+
     word_lenght = len(word)
 
     score = sum([SCRABBLE_LETTER_VALUES[letter] for letter in word]) * word_lenght
@@ -79,8 +82,8 @@ def get_word_score(word, n):
     if word_lenght == n:
         score += 50
     
+    assert isinstance(score, int), f'Something wrong! Expected the return value to be int, but is {type(score).__name__}'
     return score
-
 
 #
 # Problem #2: Make sure you understand how this function works and what it does!
@@ -137,7 +140,7 @@ def deal_hand(n):
 #
 
 
-def update_hand(hand, word):
+def update_hand(hand: dict, word: str) -> dict:
     """
     Assumes that 'hand' has all the letters in word.
     In other words, this assumes that however many times
@@ -153,13 +156,21 @@ def update_hand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    return dict((letter, amount - word.count(letter)) for letter, amount in hand.items() if amount > word.count(letter))
+
+    assert isinstance(hand, dict), f'Expected hand to be dict, but is {type(hand).__name__}'
+    assert isinstance(word, str), f'Expected word to be str, but is {type(word).__name__}'
+
+    return dict(
+        (letter, amount - word.count(letter))
+        for letter, amount in hand.items()
+        if amount > word.count(letter)
+    )
 
 
 #
 # Problem #3: Test word validity
 #
-def is_valid_word(word: string, hand: dict, word_list: list) -> bool:
+def is_valid_word(word: str, hand: dict, word_list: list) -> bool:
     """
     Returns True if word is in the word_list and is entirely
     composed of letters in the hand. Otherwise, returns False.
@@ -171,22 +182,22 @@ def is_valid_word(word: string, hand: dict, word_list: list) -> bool:
     word_list: list of lowercase strings
     """
     
-    assert isinstance(word, string), "Expected word to be string"
-    assert isinstance(hand, dict), "Expected hand to be dict"
-    assert isinstance(word_list, list), "Expected word_list to be list"
-
-    if word not in word_list: return False
+    assert isinstance(word, str), f'Expected word to be str, but is {type(word).__name__}'
+    assert isinstance(hand, dict), f'Expected hand to be dict, but is {type(hand).__name__}'
+    assert isinstance(word_list, list), f'Expected word_list to be list, but is {type(word_list).__name__}'
     
     if not all((letter in hand.keys()) for letter in word): return False
 
-    return all([(amount >= word.count(letter)) for letter, amount in hand.items()])
+    if not all([(amount >= word.count(letter)) for letter, amount in hand.items()]): return False
+
+    return word in word_list
 
 
 #
 # Problem #4: Playing a hand
 #
 
-def calculate_hand_len(hand: dict):
+def calculate_hand_len(hand: dict) -> int:
     """ 
     Returns the length (number of letters) in the current hand.
 
