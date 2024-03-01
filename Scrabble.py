@@ -170,7 +170,12 @@ def is_valid_word(word, hand, word_list):
     hand: dictionary (string -> int)
     word_list: list of lowercase strings
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    
+    if word not in word_list: return False
+    
+    if not all((letter in hand.keys()) for letter in word): return False
+
+    return all([(amount >= word.count(letter)) for letter, amount in hand.items()])
 
 
 #
