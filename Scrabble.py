@@ -159,7 +159,7 @@ def update_hand(hand, word):
 #
 # Problem #3: Test word validity
 #
-def is_valid_word(word, hand, word_list):
+def is_valid_word(word: string, hand: dict, word_list: list) -> bool:
     """
     Returns True if word is in the word_list and is entirely
     composed of letters in the hand. Otherwise, returns False.
@@ -171,6 +171,10 @@ def is_valid_word(word, hand, word_list):
     word_list: list of lowercase strings
     """
     
+    assert isinstance(word, string), "Expected word to be string"
+    assert isinstance(hand, dict), "Expected hand to be dict"
+    assert isinstance(word_list, list), "Expected word_list to be list"
+
     if word not in word_list: return False
     
     if not all((letter in hand.keys()) for letter in word): return False
