@@ -153,7 +153,7 @@ def update_hand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    return dict((letter, amount - word.count(letter)) for letter, amount in hand.items())
+    return dict((letter, amount - word.count(letter)) for letter, amount in hand.items() if amount > word.count(letter))
 
 
 #
