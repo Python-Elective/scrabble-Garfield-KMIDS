@@ -182,14 +182,17 @@ def is_valid_word(word, hand, word_list):
 # Problem #4: Playing a hand
 #
 
-def calculate_hand_len(hand):
+def calculate_hand_len(hand: dict):
     """ 
     Returns the length (number of letters) in the current hand.
 
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+
+    assert isinstance(hand, dict), 'Expected hand to be dict'
+    
+    return len(hand)
 
 
 def play_hand(hand, word_list, n):
