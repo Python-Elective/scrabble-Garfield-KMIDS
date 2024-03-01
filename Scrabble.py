@@ -153,7 +153,7 @@ def update_hand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    return dict((letter, amount) if letter not in word else (letter, amount - word.count(letter)) for letter, amount in hand.items())
 
 
 #
