@@ -111,7 +111,7 @@ def display_hand(hand: dict[str, int]):
 #
 
 
-def deal_hand(n: int) -> dict:
+def deal_hand(n: int) -> dict[str, int]:
     """
     Returns a random hand containing n lowercase letters.
     At least n/3 the letters in the hand should be VOWELS.
