@@ -34,7 +34,7 @@ def load_words():
     return word_list
 
 
-def get_frequency_dict(sequence):
+def get_frequency_dict(sequence: str | list[str]) -> dict:
     """
     Returns a dictionary where the keys are elements of the sequence
     and the values are integer counts, for the number of times that
