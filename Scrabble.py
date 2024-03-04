@@ -235,29 +235,31 @@ def play_hand(hand: dict[str, int], word_list: list[str], n: int):
     """
     # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
     # Keep track of the total score
+    total_score = 0
+    while True:
+        # As long as there are still letters left in the hand:
+        if not calculate_hand_len(hand) > 0: break
+        # Display the hand
+        display_hand(hand)
+        # Ask user for input
+        player_input = input("Type your word here: ")
+        # If the input is a single period:
+        if player_input == '.':
+            # End the game (break out of the loop)
+            break
+        # Otherwise (the input is not a single period):
+         
+        # If the word is not valid:
+        if player_input not in word_list:
+            # Reject invalid word (print a message followed by a blank line)
+            print("Your word is invalid!\n")
+            continue
+        # Otherwise (the word is valid):
 
-    # As long as there are still letters left in the hand:
-
-    # Display the hand
-
-    # Ask user for input
-
-    # If the input is a single period:
-
-    # End the game (break out of the loop)
-
-    # Otherwise (the input is not a single period):
-
-    # If the word is not valid:
-
-    # Reject invalid word (print a message followed by a blank line)
-
-    # Otherwise (the word is valid):
-
-    # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
-
-    # Update the hand
-
+        # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
+        print(f'Your word give you {get_word_score(player_input, n)} points.')
+        # Update the hand
+        update_hand(hand, player_input)
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
 
 
