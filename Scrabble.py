@@ -88,7 +88,7 @@ def get_word_score(word: str , n: int) -> int:
 #
 # Problem #2: Make sure you understand how this function works and what it does!
 #
-def display_hand(hand: dict):
+def display_hand(hand: dict[str, int]):
     """
     Displays the letters currently in the hand.
 
