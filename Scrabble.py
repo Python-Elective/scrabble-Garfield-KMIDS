@@ -260,7 +260,7 @@ def play_hand(hand: dict[str, int], word_list: list[str], n: int):
         total_score += score
         print(f'Your word give you {score} points. Your new score is {total_score}.\n')
         # Update the hand
-        update_hand(hand, player_input)
+        hand = update_hand(hand, player_input)
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
     print(f'Your total score is {total_score}.')
 
