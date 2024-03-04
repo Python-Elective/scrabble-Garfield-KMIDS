@@ -141,7 +141,7 @@ def deal_hand(n: int) -> dict[str, int]:
 #
 
 
-def update_hand(hand: dict, word: str) -> dict:
+def update_hand(hand: dict[str, int], word: str) -> dict[str, int]:
     """
     Assumes that 'hand' has all the letters in word.
     In other words, this assumes that however many times
