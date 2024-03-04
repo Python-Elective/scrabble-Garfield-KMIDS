@@ -198,11 +198,11 @@ def is_valid_word(word: str, hand: dict[str, int], word_list: list) -> bool:
 # Problem #4: Playing a hand
 #
 
-def calculate_hand_len(hand: dict) -> int:
+def calculate_hand_len(hand: dict[str, int]) -> int:
     """ 
     Returns the length (number of letters) in the current hand.
 
-    hand: dictionary (string-> int)
+    hand: dictionary (string -> int)
     returns: integer
     """
 
