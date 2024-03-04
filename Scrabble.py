@@ -265,7 +265,7 @@ def play_hand(hand: dict[str, int], word_list: list[str], n: int):
 # Problem #5: Playing a game
 #
 
-def play_game(word_list):
+def play_game(word_list: list[str]):
     """
     Allow the user to play an arbitrary number of hands.
 
