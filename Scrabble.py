@@ -171,7 +171,7 @@ def update_hand(hand: dict[str, int], word: str) -> dict[str, int]:
 #
 # Problem #3: Test word validity
 #
-def is_valid_word(word: str, hand: dict[str, int], word_list: list) -> bool:
+def is_valid_word(word: str, hand: dict[str, int], word_list: list[str]) -> bool:
     """
     Returns True if word is in the word_list and is entirely
     composed of letters in the hand. Otherwise, returns False.
