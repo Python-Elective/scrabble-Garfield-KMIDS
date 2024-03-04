@@ -1,5 +1,6 @@
 import random
 import string
+import typing
 
 VOWELS = 'aeiou'
 CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
@@ -34,7 +35,7 @@ def load_words():
     return word_list
 
 
-def get_frequency_dict(sequence: str | list[str]) -> dict:
+def get_frequency_dict(sequence: str | list[str]) -> dict[typing.Any, int]:
     """
     Returns a dictionary where the keys are elements of the sequence
     and the values are integer counts, for the number of times that
