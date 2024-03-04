@@ -211,7 +211,7 @@ def calculate_hand_len(hand: dict[str, int]) -> int:
     return len(hand)
 
 
-def play_hand(hand, word_list, n):
+def play_hand(hand: dict[str, int], word_list: list[str], n: int):
     """
     Allows the user to play the given hand, as follows:
 
