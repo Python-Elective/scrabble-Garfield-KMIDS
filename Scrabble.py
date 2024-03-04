@@ -233,7 +233,6 @@ def play_hand(hand: dict[str, int], word_list: list[str], n: int):
       n: integer (HAND_SIZE; i.e., hand size required for additional points)
 
     """
-    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
     # Keep track of the total score
     total_score = 0
     while True:
