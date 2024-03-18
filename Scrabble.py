@@ -86,6 +86,7 @@ def get_word_score(word: str , n: int) -> int:
     assert isinstance(score, int), f'Something wrong! Expected the return value to be int, but is {type(score).__name__}'
     return score
 
+
 #
 # Problem #2: Make sure you understand how this function works and what it does!
 #
@@ -249,7 +250,7 @@ def play_hand(hand: dict[str, int], word_list: list[str], n: int):
         # Otherwise (the input is not a single period):
          
         # If the word is not valid:
-        if player_input not in word_list:
+        if not is_valid_word(player_input, hand, word_list):
             # Reject invalid word (print a message followed by a blank line)
             print("Your word is invalid!\n")
             continue
@@ -281,9 +282,26 @@ def play_game(word_list: list[str]):
 
     2) When done playing the hand, repeat from step 1    
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    # <-- Remove this line when you code the function
-    print("play_game not yet implemented.")
+    hand = deal_hand(HAND_SIZE)
+
+    while True:
+        print("New hand: Type 'n'")
+        print("Last hand: Type 'r'")
+        print("Exit: Type 'e'")
+        option = input("Type your option here: ")
+        
+        if option == 'n':
+            hand = deal_hand(HAND_SIZE)
+        elif option == 'r':
+            pass
+        elif option == 'e':
+            break
+        else:
+            print('Option is invalid!')
+            continue
+
+        play_hand(hand, word_list, HAND_SIZE)
+        
 
 
 #
